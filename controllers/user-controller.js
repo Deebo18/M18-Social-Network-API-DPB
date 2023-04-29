@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const { User, Thought } = require('../models');
 
 const userController = {
   // Gets all users
@@ -71,7 +71,12 @@ const userController = {
         if (!dbUserData) {
           return res.status(404).json({ message: 'No user with this id!' });
         }
-        res.json(dbUserData);
+
+        // Gets ids of user's `thoughts` and then delete them
+        return Thought.deleteMany({ _id: { $in: dbUserData.thoughts } });
+      })
+      .then(() => {
+        res.json({ message: 'User and associated thoughts deleted!' });
       })
       .catch((err) => {
         console.log(err);
