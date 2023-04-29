@@ -2,18 +2,19 @@
     "name": "M18-Social-Network-API-DPB",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
-    "license": "MIT",
+    "main": "server.js",
     "scripts": {
-      "start": "node index",
-      "dev": "nodemon index",
-      "seed": "node utils/seed"
+      "start": "node server.js",
+      "watch": "nodemon"
     },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
     "dependencies": {
       "express": "^4.17.1",
-      "mongoose": "^6.0.13"
+      "mongoose": "^6.9.2"
     },
     "devDependencies": {
-      "nodemon": "^2.0.9"
+      "nodemon": "^2.0.3"
     }
   }
